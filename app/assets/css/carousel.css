@@ -1,0 +1,142 @@
+.carousel__btn {
+  width: 44px;
+  height: 44px;
+  background-color: #fff;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.carousel__btn:hover {
+  background-color: #f0f0f0;
+}
+
+.carousel__btn_type_left {
+  background-image: url("../images/left.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px 24px;
+  opacity: 0.5;
+  transform: translateY(-50%);
+  
+}
+
+.carousel__btn_disabled {
+  opacity: 20%;
+  cursor: default;
+}
+
+.carousel__btn_disabled:hover {
+  background-color: white;
+}
+
+.carousel {
+  position: relative;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card__carousel {
+  width: 440px;
+  height: 300px;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.4s ease;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.carousel__btn_type_right {
+  background-image: url("../images/right.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px 24px;
+  transform: translateY(-50%);
+  
+}
+
+.carousel__btn_type_flip {
+  background-image: url("../images/flip.svg");
+  margin-top: 16px;
+  align-self: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px 24px;
+}
+
+.card__carousel_color_green {
+  background-color: #64d583;
+}
+
+.card__carousel_color_blue {
+  background-color: #91a8f9;
+}
+
+.card__carousel_color_pink {
+  background-color: #ee92d7;
+}
+
+.card__carousel_color_purple {
+  background-color: #aa8ef0;
+}
+
+.card__carousel_color_orange {
+  background-color: #ee955e;
+}
+
+.card__carousel_color_yellow {
+  background-color: #f5d770;
+}
+
+.card__carousel--flipped {
+  transform: rotateY(180deg);
+  background-color: #fff;
+}
+
+.card__carousel-text {
+  backface-visibility: hidden;
+  position: absolute;
+  inset: 0;
+  padding: 20px;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.card__carousel-text--back {
+  transform: rotateY(180deg);
+}
+
+.carousel__back-btn {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  font-size: 16px;
+  color: #1a1a1a;
+  text-decoration: underline;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.carousel__back-btn:hover {
+  opacity: 1;
+}
+
+.carousel__progress {
+  margin-top: 16px;
+  font-size: 16px;
+  color: #1a1a1a;
+  opacity: 0.7;
+}
+
+.carousel__card-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px; 
+  margin-bottom: 20px; 
+}

@@ -1,0 +1,109 @@
+.decks {
+  margin-top: 0;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  display: flex;
+}
+
+.decks__title {
+  margin-bottom: 0;
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.deck__title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.deck__count {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.deck__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.decks__list {
+  display: flex;
+  gap: 20px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.decks__new-deck-btn {
+  display: flex;
+  border-radius: 20px;
+  padding: 20px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.deck {
+  background-color: #64d583;
+  width: 325px;
+  height: 205px;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  position: relative;
+}
+
+.deck__link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.deck__delete-btn {
+  height: 24px;
+  width: 24px;
+  background-color: transparent;
+  background-image: url("../images/delete.svg");
+  border: none;
+  opacity: 50%;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.deck__delete-btn:hover {
+  opacity: 1;
+}
+
+.deck_color_green {
+  background-color: #64d583;
+}
+
+.deck_color_blue {
+  background-color: #91a8f9;
+}
+
+.deck_color_pink {
+  background-color: #ee92d7;
+}
+
+.deck_color_purple {
+  background-color: #aa8ef0;
+}
+
+.deck_color_orange {
+  background-color: #ee955e;
+}
+
+.deck_color_yellow {
+  background-color: #f5d770;
+}
