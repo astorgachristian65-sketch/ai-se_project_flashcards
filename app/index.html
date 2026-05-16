@@ -2,12 +2,14 @@
 <html lang="en">
   <head>
     <meta name="description" content="a description of my flashcard page" />
-    <meta  name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Christian Astorga" />
     <meta name="keywords" content="webpage, flashcards" />
     <title>My Flashcards</title>
+
     <link rel="stylesheet" href="assets/css/index.css" />
     <link rel="icon" href="favicon.ico" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
       rel="stylesheet"
@@ -19,6 +21,7 @@
       <h1 class="header__title">
         <a href="#home" class="header__link">Flash Cards</a>
       </h1>
+
       <nav class="nav">
         <ul class="nav__links">
           <li><a href="#home" class="nav__link">Home</a></li>
@@ -29,69 +32,71 @@
     </header>
 
     <main class="page__main-content">
+
+      
       <section id="carousel" class="carousel">
+        <button class="carousel__back-btn" type="button">← Back</button>
 
-  <button class="carousel__back-btn" type="button">← Back</button>
+        <h2 class="carousel__title"></h2>
+        <div class="carousel__progress"></div>
 
+        <div class="carousel__card-wrapper">
+          <button
+            type="button"
+            class="carousel__btn carousel__btn_type_left"
+            aria-label="Previous card"
+          ></button>
 
+          <div class="card__carousel">
+            <div class="card__carousel-text"></div>
+            <div class="card__carousel-text card__carousel-text--back"></div>
+          </div>
 
-  <h2 class="carousel__title"></h2>
+          <button
+            type="button"
+            class="carousel__btn carousel__btn_type_right"
+            aria-label="Next card"
+          ></button>
+        </div>
 
-  <div class="carousel__progress"></div>
-
-
- <div class="carousel__card-wrapper">
-  <button
-    type="button"
-    class="carousel__btn carousel__btn_type_left"
-    aria-label="Previous card"
-  ></button>
-  
-  <div class="card__carousel">
-    <div class="card__carousel-text"></div>
-    <div class="card__carousel-text card__carousel-text--back"></div>
-    
-    
-  </div>
-  <button
-    type="button"
-    class="carousel__btn carousel__btn_type_right"
-    aria-label="Next card"
-     ></button>
-</div>
-
-<button class="carousel__btn carousel__btn_type_flip"></button>
-
-</section>
+        <button
+          class="carousel__btn carousel__btn_type_flip"
+          aria-label="Flip card"
+        ></button>
+      </section>
 
       
       <section id="home" class="gallery">
         <h2 class="gallery__title">My Gallery</h2>
         <div class="wrapping-row">
           <ul class="gallery__list wrapping-row__display-contents"></ul>
-          <button type="button" class="gallery__new-card-btn">+ New Card</button>
-        <template id="card-template">
-          <li class="card card_color_green">
-            <a class="card" href="#"></a>
-            <h3 class="card__title"></h3>
-            <div class="card__row">
-              <p class="card__count"></p>
-              <button
-                class="card__delete-btn"
-                aria-label="Delete this card"
-                type="button"
-              ></button>
-            </div>
-          </li>
-          </div>
-        </template>
+
+          <button type="button" class="gallery__new-card-btn">
+            + New Deck
+          </button>
+        </div>
       </section>
 
+
+      <section id="deck-view" class="gallery">
+        <h2 class="gallery__title"></h2>
+
+        <div class="wrapping-row">
+          <ul class="gallery__list wrapping-row__display-contents"></ul>
+
+          <button type="button" class="gallery__new-card-btn">
+            + New Card
+          </button>
+        </div>
+      </section>
+
+      
       <section id="about" class="about">
         <h2>About</h2>
         <p>This is the about page. You will fill this in later.</p>
       </section>
 
+      
       <section id="not-found" class="not-found">
         <h2>404 — Not Found</h2>
         <p>The page you are looking for does not exist.</p>
@@ -102,6 +107,43 @@
     <footer class="footer">
       <p class="footer__text">&copy; Christian Astorga</p>
     </footer>
+
+    <template id="deck-template">
+  <li class="card">
+    <h3 class="card__title"></h3>
+
+    <div class="card__row">
+      <p class="card__count"></p>
+
+      <button
+        type="button"
+        aria-label="Delete deck"
+        class="card__delete-btn"
+      ></button>
+    </div>
+  </li>
+</template>
+
+<template id="card-template">
+  <li class="card">
+    <h3 class="card__title"></h3>
+
+    <div class="card__row">
+      <button
+        type="button"
+        aria-label="Flip card"
+        class="card__flip-btn"
+      ></button>
+
+      <button
+        type="button"
+        aria-label="Delete card"
+        class="card__delete-btn"
+      ></button>
+    </div>
+  </li>
+</template>
+
 
     <script src="assets/js/index.js" type="module"></script>
   </body>
