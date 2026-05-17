@@ -32,26 +32,33 @@
   position: relative;
 }
 
-.card__link {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
 
-.card__delete-btn {
+.card__btn {
   height: 24px;
   width: 24px;
   background-color: transparent;
-  background-image: url("../images/delete.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px;
   border: none;
-  opacity: 50%;
+  opacity: 0.5;
   cursor: pointer;
   z-index: 2;
 }
 
-.card__delete-btn:hover {
-  opacity: 1;
+
+.card__btn_type_delete {
+  background-image: url("../images/delete.svg");
 }
+
+.card__btn_type_flip {
+  background-image: url("../images/flip.svg");
+}
+
+.card_flipped {
+  background-color:  #ffffff;
+}
+
 
 .card_color_green {
   background-color: #64d583;
