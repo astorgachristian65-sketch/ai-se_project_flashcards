@@ -2,6 +2,10 @@ import { renderCarouselView } from "./carousel.js";
 import { decks, getDeckByID } from "./decks.js";
 import { hexToString } from "./colorMap.js";
 
+const page = document.querySelector(".page");
+
+
+
 
 let currentDeck = null;
 
@@ -16,7 +20,7 @@ const notFoundSection = document.querySelector("#not-found");
 const homeList = homeSection.querySelector(".gallery__list");
 const deckViewList = deckViewSection.querySelector(".gallery__list");
 
-const practiceBtn = deckViewSection.querySelector(".gallery__new-card-btn");
+const practiceBtn = deckViewSection.querySelector(".deck-view__practice-btn");
 
 function showSection(sectionId) {
   const sections = {
@@ -41,7 +45,7 @@ function createDeckEl(deck) {
   const color = hexToString(deck.color);
   cardEl.classList.add(`card_color_${color}`);
 
-  clone.querySelector(".card__delete-btn").addEventListener("click", (evt) => {
+  clone.querySelector(".card__btn_type_delete").addEventListener("click", (evt) => {
     evt.stopPropagation();
     cardEl.remove();
   });
@@ -76,11 +80,11 @@ export function renderDeckView(deck) {
 
     clone.querySelector(".card__title").textContent = card.question;
 
-    clone.querySelector(".card__flip-btn").addEventListener("click", () => {
+    clone.querySelector(".card__btn_type_flip").addEventListener("click", () => {
       cardEl.classList.toggle("card_flipped");
     });
 
-    clone.querySelector(".card__delete-btn").addEventListener("click", () => {
+    clone.querySelector(".card__btn_type_delete").addEventListener("click", () => {
       deck.cards = deck.cards.filter((c) => c.id !== card.id);
       renderDeckView(deck);
     });
@@ -98,6 +102,7 @@ function router() {
   const hash = window.location.hash.replace("#/", "");
 
   if (hash === "" || hash === "home") {
+    page.classList.remove("page_no-mobile-bar");
     renderHomeView();
     return;
   }
@@ -109,36 +114,40 @@ function router() {
     currentDeck = getDeckByID(deckId);
 
     if (!currentDeck) {
+      page.classList.add("page_no-mobile-bar");
       showSection("not-found");
       return;
     }
 
     if (parts[2] === "practice") {
-      showSection("carousel");
-      renderCarouselView(currentDeck);
-      return;
-    }
+  page.classList.add("page_no-mobile-bar");
+  showSection("carousel");
+  renderCarouselView(currentDeck);
+  return;
+}
 
+    page.classList.remove("page_no-mobile-bar");
     renderDeckView(currentDeck);
     return;
   }
 
   if (hash.startsWith("carousel/")) {
-    const id = hash.split("/")[1];
-    const deck = getDeckByID(id);
+  const id = hash.split("/")[1];
+  const deck = getDeckByID(id);
 
-    if (deck) {
-      currentDeck = deck;
-      showSection("carousel");
-      renderCarouselView(deck);
-    } else {
-      showSection("not-found");
-    }
-    return;
+  if (deck) {
+    currentDeck = deck;
+    page.classList.add("page_no-mobile-bar");
+    showSection("carousel");
+    renderCarouselView(deck);
+  } else {
+    showSection("not-found");
   }
+  return;
+} 
 
   showSection("not-found");
-}
+} 
 
 window.addEventListener("hashchange", router);
 

@@ -1,13 +1,17 @@
-@import url("path/to/normalize.css");
+@import url("../assets/css/normalize.css");
 @import url("page.css");
 @import url("header.css");
 @import url("footer.css");
 @import url("wrapping-row.css");
 @import url("not-found.css");
 @import url("nav.css");
-@import url("deck.css");
+@import url("card.css");
 @import url("carousel.css");
 @import url("about.css");
+@import url("gallery.css");
+@import url("mobile-bar.css");
+@import url("deck-view.css");
+
 
 
 

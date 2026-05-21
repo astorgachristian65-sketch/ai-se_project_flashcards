@@ -19,3 +19,16 @@
 .page__main-content_type_carousel {
   margin-top: 106px;
 }
+
+@media screen and (max-width: 768px) {
+  .page__section-title {
+  margin-top: 16px;
+  font-size: 24px;
+}
+
+
+ #deck-view .gallery__list {
+    margin-bottom: 16px;
+  }
+
+}
