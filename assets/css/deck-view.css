@@ -1,15 +1,134 @@
-.deck-view__practice-btn {
+/* ============= DESKTOP ============= */
+
+#deck-view {
+  padding: 20px 0;
+  padding-bottom: 120px;
+}
+
+/* Header row: title + Practice button */
+#deck-view .deck-view__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+/* Practice button (desktop) */
+#deck-view .deck-view__practice-btn {
   padding: 12px 20px;
   border-radius: 12px;
   background-color: #1a1a1a;
   color: white;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   border: none;
   cursor: pointer;
-  margin-bottom: 20px;
 }
 
-.deck-view__practice-btn:hover {
-  opacity: 0.8;
+/* ============= GRID FOR CARDS + NEW CARD BUTTON ============= */
+
+#deck-view .deck-view__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* ← EXACTLY 4 columns */
+  gap: 20px;
+  width: 100%;
+}
+
+#deck-view.gallery {
+  display: block;
+}
+
+
+
+/* Make the <ul> behave like grid children instead of flex */
+#deck-view .deck-view__grid .gallery__list {
+  display: contents;
+}
+
+/* New Card button styled like a card */
+#deck-view .deck-view__new-card-btn {
+  width: 100%;
+  height: 205px;
+  border-radius: 20px;
+  background-color: #f2f2f2;
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  box-shadow:
+    0px 2px 8px 0px #0000001a,
+    -1px 2px 2px 0px #ffffffb2 inset,
+    1px -1px 2px 0px #00000040 inset;
+}
+
+/* Hide mobile bar on desktop */
+#deck-view .deck-view__mobile-bar {
+  display: none;
+}
+
+
+@media (max-width: 800px) {
+
+  #deck-view {
+    padding: 20px;
+    padding-bottom: 120px;
+  }
+
+  #deck-view .deck-view__header {
+    margin-bottom: 20px;
+  }
+
+  #deck-view .gallery__title {
+    font-size: 24px;
+    margin: 0;
+  }
+
+  #deck-view .deck-view__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #deck-view .gallery__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #deck-view .card {
+    width: 100%;
+    max-width: 353px;
+    margin: 0 auto;
+  }
+
+  #deck-view .deck-view__header .deck-view__practice-btn {
+    display: none;
+  }
+
+  #deck-view .deck-view__grid .deck-view__new-card-btn {
+    display: none;
+  }
+
+  #deck-view .deck-view__mobile-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    background: linear-gradient(to top, #fff 40%, transparent 100%);
+  }
+
+  #deck-view .deck-view__mobile-bar button {
+    flex: 1;
+    height: 48px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+  }
 }

@@ -22,21 +22,20 @@
 
       <nav class="nav">
         <ul class="nav__links">
-          <li><a href="#home" class="nav__link">Home</a></li>
           <li><a href="#home" class="nav__link">Decks</a></li>
-          <li><a href="#about" class="nav__link">About</a></li>
+          <li><a href="#/about" class="nav__link">About</a></li>
         </ul>
       </nav>
     </header>
 
     <main class="page__main-content">
 
-      
+      <!-- PRACTICE CAROUSEL -->
       <section id="carousel" class="carousel">
-        <button class="carousel__back-btn" type="button">← Back</button>
+        <button class="carousel__back-btn" type="button" aria-label="Go back to deck">← Back</button>
 
         <h2 class="carousel__title"></h2>
-        <div class="carousel__progress"></div>
+        <div class="carousel__progress" role="status" aria-live="polite"></div>
 
         <div class="carousel__grid">
           <button
@@ -52,8 +51,8 @@
           ></button>
 
           <div class="card__carousel">
-            <div class="card__carousel-text"></div>
-            <div class="card__carousel-text card__carousel-text--back"></div>
+            <div class="card__carousel-text" aria-live="polite"></div>
+            <div class="card__carousel-text card__carousel-text--back" aria-live="polite"></div>
           </div>
 
           <button
@@ -62,46 +61,75 @@
             aria-label="Next card"
           ></button>
         </div>
-
-          
       </section>
 
-      
+      <!-- HOME PAGE -->
       <section id="home" class="gallery">
         <h2 class="gallery__title">My Gallery</h2>
+
         <div class="wrapping-row">
           <ul class="gallery__list wrapping-row__display-contents"></ul>
+        </div>
 
-          <button type="button" class="gallery__new-card-btn">
+        <div class="mobile-bar">
+          <button type="button" class="gallery__new-card-btn" aria-label="Create a new deck">
             + New Deck
           </button>
         </div>
       </section>
 
-
+      <!-- DECK VIEW -->
       <section id="deck-view" class="gallery">
-        <h2 class="gallery__title"></h2>
-        <button type="button" class="deck-view__practice-btn">
-          Practice
-        </button>
 
+        <!-- HEADER: Title + Practice button -->
+        <div class="deck-view__header">
+          <h2 class="gallery__title"></h2>
 
-        <div class="wrapping-row">
-          <ul class="gallery__list wrapping-row__display-contents"></ul>
+          <button type="button" class="deck-view__practice-btn" aria-label="Start practice mode">
+            Practice
+          </button>
+        </div>
 
-          <button type="button" class="gallery__new-card-btn">
+        <!-- GRID: Cards + New Card button -->
+        <div class="deck-view__grid">
+          <ul class="gallery__list"></ul>
+
+          <button 
+            type="button" 
+            class="gallery__new-card-btn deck-view__new-card-btn" 
+            aria-label="Create a new card">
             + New Card
+          </button>
+        </div>
+
+        <!-- MOBILE BAR -->
+        <div class="deck-view__mobile-bar">
+          <button type="button" class="gallery__new-card-btn deck-view__new-card-btn" aria-label="Create a new card">
+            + New Card
+          </button>
+          <button type="button" class="deck-view__practice-btn" aria-label="Start practice mode">
+            Practice
           </button>
         </div>
       </section>
 
-      
+      <!-- ABOUT PAGE -->
       <section id="about" class="about">
         <h2>About</h2>
-        <p>This is the about page. You will fill this in later.</p>
+        <p>
+          Flash Cards is a small study tool I built while learning web development.
+          It lets you create decks, add cards, and practice with a clean, simple
+          interface — whether you're on desktop or mobile.
+        </p>
+        <p>
+          I made this project as part of my journey into software engineering, and
+          it taught me a lot about building real interfaces, handling state, and
+          making things feel good to use. Hope you enjoy exploring it as much as I
+          enjoyed putting it together.
+        </p>
       </section>
 
-      
+      <!-- 404 PAGE -->
       <section id="not-found" class="not-found">
         <h2>404 — Not Found</h2>
         <p>The page you are looking for does not exist.</p>
@@ -113,44 +141,43 @@
       <p class="footer__text">&copy; Christian Astorga</p>
     </footer>
 
+    <!-- DECK TEMPLATE -->
     <template id="deck-template">
-  <li class="card">
-    <h3 class="card__title"></h3>
+      <li class="card">
+        <h3 class="card__title"></h3>
 
-    <div class="card__row">
-      <p class="card__count"></p>
+        <div class="card__row">
+          <p class="card__count"></p>
 
-      <button
-        type="button"
-        aria-label="Delete deck"
-        class="card__btn card__btn_type_delete"
-      ></button>
-    </div>
-  </li>
-</template>
+          <button
+            type="button"
+            aria-label="Delete deck"
+            class="card__btn card__btn_type_delete"
+          ></button>
+        </div>
+      </li>
+    </template>
 
+    <!-- CARD TEMPLATE -->
+    <template id="card-template">
+      <li class="card">
+        <h3 class="card__title"></h3>
 
-<template id="card-template">
-  <li class="card">
-    <h3 class="card__title"></h3>
+        <div class="card__row">
+          <button
+            type="button"
+            aria-label="Flip card"
+            class="card__btn card__btn_type_flip"
+          ></button>
 
-    <div class="card__row">
-      <button
-        type="button"
-        aria-label="Flip card"
-        class="card__btn card__btn_type_flip"
-      ></button>
-
-      <button
-        type="button"
-        aria-label="Delete card"
-        class="card__btn card__btn_type_delete"
-      ></button>
-    </div>
-  </li>
-</template>
-
-
+          <button
+            type="button"
+            aria-label="Delete card"
+            class="card__btn card__btn_type_delete"
+          ></button>
+        </div>
+      </li>
+    </template>
 
     <script src="assets/js/index.js" type="module"></script>
   </body>

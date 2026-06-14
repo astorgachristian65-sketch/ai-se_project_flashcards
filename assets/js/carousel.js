@@ -17,12 +17,18 @@ export function renderCarouselView(deck) {
 
   carouselSection.style.display = "flex";
 
+  document.body.classList.add("page_no-mobile-bar");
+  document.body.classList.add("page_location_carousel");
+
   const leftBtn = carouselSection.querySelector(".carousel__btn_type_left");
   const rightBtn = carouselSection.querySelector(".carousel__btn_type_right");
   const backBtn = carouselSection.querySelector(".carousel__back-btn");
   backBtn.onclick = () => {
-    window.location.hash = "#home";
-  };
+  document.body.classList.remove("page_no-mobile-bar");
+  document.body.classList.remove("page_location_carousel");
+  window.location.hash = "#home";
+};
+
   
   homeSection.style.display = "none";
   notFoundSection.style.display = "none";

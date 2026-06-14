@@ -20,8 +20,6 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: 24px 24px;
-  opacity: 0.5;
-  transform: translateY(-50%);
   grid-area: left-btn;
 }
 
@@ -64,19 +62,19 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: 24px 24px;
-  transform: translateY(-50%);
   grid-area: right-btn;
-  
+  margin-right: 10px;
 }
 
 .carousel__btn_type_flip {
   background-image: url("../images/flip.svg");
-  margin-top: 16px;
-  align-self: center;
+  margin-top: 0;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 24px 24px;
   grid-area: flip;
+  justify-self: center;
+
 }
 
 .card__carousel_color_green {
@@ -149,67 +147,57 @@
 
 .carousel__grid {
   display: grid;
-  grid-template-areas: "left-btn card right-btn";
-  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    "left-btn card right-btn"
+    "flip flip flip";
+  grid-template-columns: auto 440px auto;
+  justify-content: center;
   align-items: center;
-  justify-items: center;
-  gap: 20px;
+  column-gap: 64px;
+row-gap: 20px;
+
 }
 
-@media screen and (max-width: 600px) {
+
+
+@media (max-width: 800px) {
+
+  .carousel {
+    padding: 20px;
+    gap: 16px;
+  }
 
   .carousel__grid {
-    grid-template-areas:
-      "back"
-      "title"
-      "progress"
-      "card"
-      "flip"
-      "left-btn"
-      "right-btn";
-    grid-template-columns: 1fr;
-    justify-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
     row-gap: 16px;
+    column-gap: 16px;
+    justify-items: center;
+    align-items: center;
   }
 
-  .carousel__back-btn {
-    grid-area: back;
-    justify-self: start;
-    margin-left: 16px;
-  }
-
-  .carousel__title {
-    grid-area: title;
-    text-align: center;
-  }
-
-  .carousel__progress {
-    grid-area: progress;
-    width: 100%;
-    text-align: center;
-  }
-
+  /* Card centered on its own row */
   .card__carousel {
-    grid-area: card;
-    width: 100%;
-    max-width: 320px;
-    box-sizing: border-box; /* REQUIRED by Task 5 */
+    grid-column: 1 / 4;
+    grid-row: 1;
+    width: 343px;
+    height: 205px;
+  }
+
+  /* Bottom row buttons */
+  .carousel__btn_type_left {
+    grid-column: 1;
+    grid-row: 2;
   }
 
   .carousel__btn_type_flip {
-    grid-area: flip;
-    justify-self: center;
-  }
-
-  .carousel__btn_type_left {
-    grid-area: left-btn;
-    justify-self: center;
+    grid-column: 2;
+    grid-row: 2;
   }
 
   .carousel__btn_type_right {
-    grid-area: right-btn;
-    justify-self: center;
+    grid-column: 3;
+    grid-row: 2;
   }
 }
-
-
