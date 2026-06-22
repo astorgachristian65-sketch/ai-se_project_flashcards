@@ -41,7 +41,7 @@
 
 
 /* Make the <ul> behave like grid children instead of flex */
-#deck-view .deck-view__grid .gallery__list {
+#deck-view .deck-view__grid .deck-view__list {
   display: contents;
 }
 
@@ -81,7 +81,7 @@
     margin-bottom: 20px;
   }
 
-  #deck-view .gallery__title {
+  #deck-view .deck-view__title {
     font-size: 24px;
     margin: 0;
   }
@@ -92,7 +92,7 @@
     gap: 20px;
   }
 
-  #deck-view .gallery__list {
+  #deck-view .deck-view__list {
     display: flex;
     flex-direction: column;
     gap: 20px;

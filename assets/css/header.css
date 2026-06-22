@@ -1,6 +1,7 @@
 .header {
   display: flex;
   justify-content: space-between;
+  padding: 16px 20px;
 }
 
 .header__title {
@@ -14,4 +15,35 @@
   letter-spacing: -0.24px;
   text-decoration: none;
   color: #1a1a1a;
+}
+
+/* NAV INSIDE HEADER */
+.header__nav {
+  margin: 0;
+  padding: 0;
+}
+
+.header__nav-links {
+  display: flex;
+  gap: 20px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header__nav-link {
+  font-weight: 500;
+  font-size: 16px;
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.header__nav-link:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 800px) {
+  .header {
+    padding: 20px 32px;
+  }
 }

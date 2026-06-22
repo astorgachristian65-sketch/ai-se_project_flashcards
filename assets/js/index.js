@@ -15,8 +15,9 @@ const carouselSection = document.querySelector("#carousel");
 const notFoundSection = document.querySelector("#not-found");
 const aboutSection = document.querySelector("#about");
 
-const homeList = homeSection.querySelector(".gallery__list");
-const deckViewList = deckViewSection.querySelector(".gallery__list");
+// UPDATED: use new BEM class names
+const homeList = homeSection.querySelector(".home__list");
+const deckViewList = deckViewSection.querySelector(".deck-view__list");
 
 // FIXED: select ALL practice buttons (desktop + mobile)
 const practiceBtns = deckViewSection.querySelectorAll(".deck-view__practice-btn");
@@ -69,7 +70,8 @@ function renderHomeView() {
 export function renderDeckView(deck) {
   showSection("deck-view");
 
-  deckViewSection.querySelector(".gallery__title").textContent = deck.name;
+  // UPDATED: new BEM class name for title
+  deckViewSection.querySelector(".deck-view__title").textContent = deck.name;
   deckViewList.innerHTML = "";
 
   deck.cards.forEach((card) => {
@@ -95,7 +97,7 @@ export function renderDeckView(deck) {
 }
 
 // FIXED: attach listener to BOTH practice buttons
-practiceBtns.forEach(btn => {
+practiceBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     if (!currentDeck) return;
     window.location.hash = `#/deck/${currentDeck.id}/practice`;
