@@ -2,11 +2,23 @@
   padding: 16px 20px;
 }
 
-
 .footer__text {
   font-weight: 400;
   font-size: 16px;
   letter-spacing: -0.16px;
   color: #00000080;
   margin: 0;
+}
+
+@media (max-width: 800px) {
+  .footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    background: linear-gradient(to top, #fff 40%, transparent 100%);
+    text-align: center;
+    z-index: 1000;
+  }
 }

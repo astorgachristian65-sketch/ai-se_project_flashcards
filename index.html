@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="description" content="a description of my flashcard page" />
+    <meta name="description" content="Flashcards study app" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Christian Astorga" />
-    <meta name="keywords" content="webpage, flashcards" />
+    <meta name="keywords" content="flashcards, study, decks" />
     <title>My Flashcards</title>
-
     <link rel="stylesheet" href="assets/css/index.css" />
     <link rel="icon" href="favicon.ico" />
     <link
@@ -30,10 +29,13 @@
     </header>
 
     <main class="page__main-content">
-      <!-- PRACTICE CAROUSEL -->
+
+      <!-- ===========================
+           CAROUSEL (Practice Mode)
+      ============================ -->
       <section id="carousel" class="carousel">
         <button
-          class="carousel__back-btn"
+          class="carousel__back-btn u-focus-outline"
           type="button"
           aria-label="Go back to deck"
         >
@@ -44,49 +46,52 @@
         <div class="carousel__progress" role="status" aria-live="polite"></div>
 
         <div class="carousel__grid">
+
+          <!-- ARROWS + CARD ROW -->
+          <div class="carousel__row">
+            <button
+              type="button"
+              class="carousel__btn carousel__btn_type_left u-focus-outline"
+              aria-label="Previous card"
+            ></button>
+
+            <div class="carousel__card">
+              <div class="carousel__card-text"></div>
+              <div
+                class="carousel__card-text carousel__card-text--back"
+                aria-live="polite"
+              ></div>
+            </div>
+
+            <button
+              type="button"
+              class="carousel__btn carousel__btn_type_right u-focus-outline"
+              aria-label="Next card"
+            ></button>
+          </div>
+
+          <!-- FLIP BUTTON -->
           <button
             type="button"
-            class="carousel__btn carousel__btn_type_flip"
+            class="carousel__btn carousel__btn_type_flip u-focus-outline"
             aria-label="Flip card"
           ></button>
 
-          <button
-            type="button"
-            class="carousel__btn carousel__btn_type_left"
-            aria-label="Previous card"
-          ></button>
-
-          <div class="carousel__card">
-            <div
-              class="carousel__card-text"
-              aria-live="polite"
-            ></div>
-            <div
-              class="carousel__card-text carousel__card-text--back"
-              aria-live="polite"
-            ></div>
-          </div>
-
-          <button
-            type="button"
-            class="carousel__btn carousel__btn_type_right"
-            aria-label="Next card"
-          ></button>
         </div>
       </section>
 
-      <!-- HOME PAGE -->
+      <!-- ===========================
+           HOME PAGE
+      ============================ -->
       <section id="home" class="home">
         <h2 class="home__title">My Gallery</h2>
 
-        <div class="u-wrap u-display-contents">
+        <div class="home__grid">
           <ul class="home__list"></ul>
-        </div>
 
-        <div class="home__mobile-bar">
           <button
             type="button"
-            class="home__new-deck-btn"
+            class="home__new-deck-btn-desktop u-focus-outline"
             aria-label="Create a new deck"
           >
             + New Deck
@@ -94,71 +99,134 @@
         </div>
       </section>
 
-      <!-- DECK VIEW -->
-      <section id="deck-view" class="deck-view">
-        <!-- HEADER: Title + Practice button -->
+      <div class="mobile-bar">
+        <button
+          type="button"
+          class="mobile-bar__new-deck-btn u-focus-outline"
+          aria-label="Create a new deck"
+        >
+          + New Deck
+        </button>
+      </div>
+
+      <!-- ===========================
+           NEW DECK VIEW
+      ============================ -->
+      <section class="new-deck-view" id="new-deck-view" style="display: none;">
+        <h2 class="new-deck-view__title">New Deck</h2>
+
+        <form class="new-deck-view__form" id="new-deck-form">
+          <fieldset class="new-deck-view__colors">
+            <legend class="new-deck-view__colors-title">Choose a Color</legend>
+
+            <label for="color-green" class="new-deck-view__color-label">
+              <input type="radio" id="color-green" name="deckColor" value="#64d583" checked />
+              <span class="new-deck-view__color-swatch color-green"></span>
+              Green
+            </label>
+
+            <label for="color-blue" class="new-deck-view__color-label">
+              <input type="radio" id="color-blue" name="deckColor" value="#91a8f9" />
+              <span class="new-deck-view__color-swatch color-blue"></span>
+              Blue
+            </label>
+
+            <label for="color-orange" class="new-deck-view__color-label">
+              <input type="radio" id="color-orange" name="deckColor" value="#ee955e" />
+              <span class="new-deck-view__color-swatch color-orange"></span>
+              Orange
+            </label>
+
+            <label for="color-pink" class="new-deck-view__color-label">
+              <input type="radio" id="color-pink" name="deckColor" value="#ee92d7" />
+              <span class="new-deck-view__color-swatch color-pink"></span>
+              Pink
+            </label>
+
+            <label for="color-purple" class="new-deck-view__color-label">
+              <input type="radio" id="color-purple" name="deckColor" value="#aa8ef0" />
+              <span class="new-deck-view__color-swatch color-purple"></span>
+              Purple
+            </label>
+
+            <label for="color-yellow" class="new-deck-view__color-label">
+              <input type="radio" id="color-yellow" name="deckColor" value="#f5d770" />
+              <span class="new-deck-view__color-swatch color-yellow"></span>
+              Yellow
+            </label>
+          </fieldset>
+
+          <label for="deck-description">Deck Description</label>
+          <textarea id="deck-description" name="deckDescription"></textarea>
+
+          <button type="submit" class="form__submit-btn" disabled>
+            Create Deck
+          </button>
+        </form>
+      </section>
+
+      <!-- ===========================
+           DECK VIEW
+      ============================ -->
+      <section id="deck-view" class="deck-view" style="display:none;">
         <div class="deck-view__header">
           <h2 class="deck-view__title"></h2>
 
           <button
             type="button"
-            class="deck-view__practice-btn"
+            class="deck-view__practice-btn u-focus-outline"
             aria-label="Start practice mode"
           >
             Practice
           </button>
         </div>
 
-        <!-- GRID: Cards + New Card button -->
         <div class="deck-view__grid">
           <ul class="deck-view__list"></ul>
 
           <button
             type="button"
-            class="deck-view__new-card-btn"
+            class="deck-view__new-card-btn u-focus-outline"
             aria-label="Create a new card"
           >
             + New Card
           </button>
         </div>
 
-        <!-- MOBILE BAR -->
         <div class="deck-view__mobile-bar">
-          <button
-            type="button"
-            class="deck-view__new-card-btn"
-            aria-label="Create a new card"
-          >
+          <button type="button" class="deck-view__new-card-btn u-focus-outline">
             + New Card
           </button>
-          <button
-            type="button"
-            class="deck-view__practice-btn"
-            aria-label="Start practice mode"
-          >
+          <button type="button" class="deck-view__practice-btn u-focus-outline">
             Practice
           </button>
         </div>
       </section>
 
-      <!-- ABOUT PAGE -->
-      <section id="about" class="about">
-        <h2>About</h2>
-        <p>
-          Flash Cards is a small study tool I built while learning web
-          development. It lets you create decks, add cards, and practice with a
-          clean, simple interface — whether you're on desktop or mobile.
+      <!-- ===========================
+           ABOUT
+      ============================ -->
+      <section id="about" class="about" style="display:none;">
+        <h2 class="about__title">About</h2>
+
+        <p class="about__text">
+          Flash Cards is a study tool built with vanilla JavaScript. Create decks,
+          add cards, and practice using a clean interface.
         </p>
-        <p>
-          I made this project as part of my journey into software engineering,
-          and it taught me a lot about building real interfaces, handling state,
-          and making things feel good to use. Hope you enjoy exploring it as
-          much as I enjoyed putting it together.
-        </p>
+
+        <pre class="about__code">
+{
+  "name": "Flashcards App",
+  "version": "1.0",
+  "description": "A simple flashcards app built with vanilla JS."
+}
+        </pre>
       </section>
 
-      <!-- 404 PAGE -->
-      <section id="not-found" class="not-found">
+      <!-- ===========================
+           NOT FOUND
+      ============================ -->
+      <section id="not-found" class="not-found" style="display:none;">
         <h2>404 — Not Found</h2>
         <p>The page you are looking for does not exist.</p>
       </section>
@@ -168,44 +236,56 @@
       <p class="footer__text">&copy; Christian Astorga</p>
     </footer>
 
-    <!-- DECK TEMPLATE -->
+    <!-- ===========================
+         ERROR MODAL
+    ============================ -->
+    <div id="error-modal" class="modal">
+      <div class="modal__content">
+        <h2 class="modal__title">Error occurred</h2>
+        <p class="modal__message"></p>
+        <button class="modal__close">Close</button>
+      </div>
+    </div>
+
+    <!-- ===========================
+         HOME DECK TEMPLATE
+    ============================ -->
     <template id="deck-template">
-      <li class="card">
-        <h3 class="card__title"></h3>
+      <li>
+        <div class="card">
+          <div class="card__row">
+            <h3 class="card__title"></h3>
+            <button class="card__btn card__btn_type_delete card__btn_home-delete"></button>
+          </div>
 
-        <div class="card__row">
           <p class="card__count"></p>
-
-          <button
-            type="button"
-            aria-label="Delete deck"
-            class="card__btn card__btn_type_delete"
-          ></button>
         </div>
       </li>
     </template>
 
-    <!-- CARD TEMPLATE -->
+    <!-- ===========================
+         CARD TEMPLATE (Deck View)
+    ============================ -->
     <template id="card-template">
-      <li class="card">
-        <h3 class="card__title"></h3>
+      <li>
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">
+              <h3 class="card__title_front"></h3>
 
-        <div class="card__row">
-          <button
-            type="button"
-            aria-label="Flip card"
-            class="card__btn card__btn_type_flip"
-          ></button>
+              <button class="card__btn card__btn_type_flip"></button>
+              <button class="card__btn card__btn_type_delete"></button>
+            </div>
 
-          <button
-            type="button"
-            aria-label="Delete card"
-            class="card__btn card__btn_type_delete"
-          ></button>
+            <div class="card-back">
+              <p class="card__answer"></p>
+            </div>
+          </div>
         </div>
       </li>
     </template>
 
-    <script src="assets/js/index.js" type="module"></script>
+    <script type="module" src="assets/js/new-deck-view.js"></script>
+    <script type="module" src="assets/js/index.js"></script>
   </body>
 </html>

@@ -1,0 +1,123 @@
+.new-deck-view {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.new-deck-view__title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.new-deck-view__form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 400px;
+}
+
+/* ===========================
+   COLOR SELECTOR
+=========================== */
+
+.new-deck-view__colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.new-deck-view__color-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.new-deck-view__color-label input {
+  display: none; /* hide radio circle */
+}
+
+.new-deck-view__color-swatch {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: inline-block;
+  border: 2px solid transparent;
+}
+
+/* Selected color outline */
+.new-deck-view__color-label input:checked + .new-deck-view__color-swatch {
+  border-color: #000;
+}
+
+/* Color backgrounds (already used in your HTML) */
+.color-green { background-color: #64d583; }
+.color-blue { background-color: #91a8f9; }
+.color-orange { background-color: #ee955e; }
+.color-pink { background-color: #ee92d7; }
+.color-purple { background-color: #aa8ef0; }
+.color-yellow { background-color: #f5d770; }
+
+/* ===========================
+   TEXTAREA (JSON INPUT)
+=========================== */
+
+#deck-description {
+  width: 100%;
+  max-width: 400px; /* adjust if Figma specifies exact width */
+  height: 220px;    /* adjust if Figma specifies exact height */
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+/* ===========================
+   SUBMIT BUTTON
+=========================== */
+
+.form__submit-btn {
+  padding: 12px 20px;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+}
+
+/* ===========================
+   MOBILE RESPONSIVE
+=========================== */
+
+@media (max-width: 480px) {
+  .new-deck-view {
+    padding: 20px 16px;
+    gap: 20px;
+  }
+
+  .new-deck-view__form {
+    max-width: 100%;
+  }
+
+  #deck-description {
+    max-width: 100%;
+    height: 200px;
+  }
+
+  .new-deck-view__colors {
+    gap: 12px;
+  }
+
+  .new-deck-view__color-swatch {
+    width: 28px;
+    height: 28px;
+  }
+}

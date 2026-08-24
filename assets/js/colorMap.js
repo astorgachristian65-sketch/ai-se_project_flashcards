@@ -9,25 +9,23 @@ const colorMap = {
 };
 
 /**
- * Returns a hexadecimal string corresponding to the provided color name
- * string. If it isn't found in the colorMap object, colorMap.default is
- * returned.
+ * Converts a color name into its corresponding hex value.
+ * Falls back to the default color if the name is not found.
  *
  * @param {string} colorName
- * @returns a hexadecimal string
+ * @returns {string}
  */
 function stringToHex(colorName) {
   const color = colorMap[colorName];
-
   return color || colorMap.default;
 }
 
 /**
- * Accepts a hexadecimal string and returns the corresponding color name key,
- * if found in colorMap. If a match isn't found, null is returned.
+ * Converts a hex color value into its corresponding color name.
+ * Returns null if no matching color name exists.
  *
  * @param {string} hexValue
- * @returns a color name string
+ * @returns {string|null}
  */
 function hexToString(hexValue) {
   const colorString = Object.keys(colorMap).find((key) => {
@@ -38,8 +36,7 @@ function hexToString(hexValue) {
 }
 
 /**
- * Accepts an HTML element and removes all BEM "_color_" modifiers from its
- * class list.
+ * Removes all BEM "_color_" modifier classes from an element.
  *
  * @param {HTMLElement} element
  */
@@ -51,4 +48,4 @@ function removeColorClasses(element) {
   });
 }
 
-export {  hexToString, removeColorClasses };
+export { hexToString, removeColorClasses };

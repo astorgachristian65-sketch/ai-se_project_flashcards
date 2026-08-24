@@ -1,0 +1,56 @@
+/* ============================
+   ERROR MODAL
+============================ */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal_visible {
+  display: flex;
+}
+
+.modal__content {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 8px;
+  width: 320px;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.modal__title {
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.modal__message {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.modal__close {
+  padding: 10px 16px;
+  background: #ff4d4f;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.modal__close:hover {
+  background: #e04344;
+}

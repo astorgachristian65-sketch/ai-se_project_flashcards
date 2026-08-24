@@ -1,39 +1,14 @@
+@import url("../vendor/normalize.css");
 @import url("page.css");
 @import url("header.css");
-@import url("footer.css");
-@import url("utils.css");
-@import url("not-found.css");
-@import url("card.css");
+@import url("home.css");
+@import url("deck-view.css");
 @import url("carousel.css");
 @import url("about.css");
-@import url("home.css");
+@import url("not-found.css");
+@import url("card.css");
+@import url("utils.css");
+@import url("footer.css");
 @import url("mobile-bar.css");
-@import url("deck-view.css");
-
-
-@media (max-width: 800px) {
-  .page {
-    margin: 0;
-    padding: 0;
-  }
-
-}
-
-button:focus {
-  outline: 2px solid #1a1a1a;
-  outline-offset: 2px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@import url("modal.css");
+@import url("new-deck-view.css");
